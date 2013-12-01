@@ -1,31 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title id="t"></title>
+<%- include partials/head.ejs %>
+<%- include partials/homesnbnavbar.ejs %>
 
-	<script type="text/javascript" src="../packages/jquery/jquery.min.js"></script>
-
-	<script src="/socket.io/socket.io.js"></script>
-
-	<script type="text/javascript" src="/javascripts/application.js"></script>
-	<script type="text/javascript" src="/javascripts/SVG.js"></script>
-	<link rel='stylesheet' href='/stylesheets/style.css' />
-
-	<script src="../javascripts/selectednotebook.js"></script>
-	<script> var id = "<%= id %>"; </script>
-
-</head>
-<body>
-<% include partials/spinner.ejs %>
-<%- include partials/selectednavbar.ejs %>
-
+</header>
 <div id='body'>
 <%- include partials/sidebar.ejs %>
 
 	<div id="mainContent">
-		<div class="header"></div>
+		<div class="header"><%=notebook%> Notebook</div>
 		<div class="content">
-<%- include partials/results.ejs %> 
+		<%- include partials/results.ejs %> 
 			<div id="nContainer"></div>
 		</div>
 	</div>

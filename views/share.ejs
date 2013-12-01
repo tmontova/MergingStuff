@@ -1,23 +1,18 @@
 <title>Sharing - Notes! Notes! Notes!</title>
 <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
 <link rel="stylesheet" type="text/css" href="/stylesheets/share.css">
-<script type="text/javascript" src="/javascripts/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="/javascripts/share.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/application.js"></script>
 <script type="text/javascript" src="/javascripts/getResults_ajax.js"></script>
 
 
 <header id='page_header'>
-<header id='page_header'>
-        <a href='/' id='logo'>Notes! Notes! Notes!</a>
-        <div style='float:right;'>
-                <a href="homehelp" onclick="window.open('/homehelp', '_blank', 'toolbar=0,scrollbars=1,location=0,statusbar=0,menubar=0,resizable=1,width=600,height=520,left = 400,top = 200'); return false;" target="newWin"; style='margin-left:20px; color: #FF0000; font-weight:bold;'>?  </a>
-                <a href="#"> <%= username %> </a>
-        </div>
-</header>
+			<% include partials/navbar %>
 </header>
 
 
 <div id='body'>
+
 		<% include partials/share_sidebar %>
 	<div id='results'>
 		<% include partials/share_searchbar %>

@@ -5,17 +5,17 @@
 var note = require( '../lib/note' );
 var notebook = require( '../lib/notebook' );
 
-exports.searchAll = function ( req, res ) {
+exports.searchAll = function( req, res ) {
 	var query = req.query.q;
 
-	note.find( query, undefined, function ( results, db ) {
+	note.find( query, undefined, function( results, db ) {
 		var noteResults = results;
 		var noteDb = db;
 
-		notebook.find( query, undefined, function ( results, db ) {
-			results = results.concat( noteResults );
+		notebook.find( query, undefined, function( results, db ) {
+			results = results.concat(noteResults);
 
-			results.sort( function ( a, b ) {
+			results.sort( function( a, b ) {
 				if ( a.title == b.title ) {
 					return 0;
 				} else if ( a.title < b.title ) {
@@ -37,6 +37,6 @@ exports.searchAll = function ( req, res ) {
 	} );
 };
 
-exports.searchNotebook = function ( req, res ) {
+exports.searchNotebook = function( req, res ) {
 
 };

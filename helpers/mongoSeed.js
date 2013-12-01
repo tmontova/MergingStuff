@@ -1,5 +1,14 @@
+function seedUsers() {
+	db.users.insert( [
+		{ "fname" : "Timm", "lname" : "Allman", "username" : "tallman", "email" : "tallman@umass.edu", "password" : "tallman" },
+		{ "fname" : "Nicholas", "lname" : "Combs", "username" : "ncombs", "email" : "ncombs@umass.edu", "password" : "ncombs" },
+		{ "fname" : "Thomas", "lname" : "Montovani", "username" : "tmontova", "email" : "tmontova@umass.edu", "password" : "tmontova" },
+		{ "fname" : "Christopher", "lname" : "Peterson", "username" : "crpeters", "email" : "crpeters@umass.edu", "password" : "crpeters" },
+		{ "fname" : "Patrick", "lname" : "Broughton", "username" : "pbrought", "email" : "pbrought@umass.edu", "password" : "pbrought" }
+	] );
+}
+
 function seedNotebooks() {
-	'use strict';
 	var userC = db.users.count(),
 		users = db.users.find();
 	for ( var i = 0; i < userC * 3; i++ ) {
@@ -9,7 +18,6 @@ function seedNotebooks() {
 }
 
 function shareNotebooks() {
-	'use strict';
 	var userC = db.users.count() - 1,
 		users = db.users.find();
 	for ( var i = 0; i <= userC; i++ ) {
@@ -19,7 +27,6 @@ function shareNotebooks() {
 }
 
 function seedNotes() {
-	'use strict';
 	var notebookC = db.notebooks.count(),
 		notebooks = db.notebooks.find();
 	for ( var i = 0; i < notebookC * 3; i++ ) {
@@ -29,7 +36,6 @@ function seedNotes() {
 }
 
 function shareNotes() {
-	'use strict';
 	var userC = db.users.count() - 1,
 		users = db.users.find();
 	for ( var i = 0; i <= userC; i++ ) {
@@ -39,10 +45,11 @@ function shareNotes() {
 }
 
 function seedDb() {
-	'use strict';
+	db.users.drop();
 	db.notes.drop();
 	db.notebooks.drop();
 
+	seedUsers();
 	seedNotebooks();
 	seedNotes();
 	shareNotebooks();
@@ -50,3 +57,4 @@ function seedDb() {
 }
 
 seedDb();
+

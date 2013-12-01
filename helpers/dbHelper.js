@@ -4,7 +4,6 @@
 
 var MongoClient = require( 'mongodb' ).MongoClient;
 
-exports.dbConn = function ( callback ) {
-	'use strict';
-	MongoClient.connect( 'mongodb://team326:notesnotesnotes@timm-allman.mynetgear.com:27017/notesjs', { db : { native_parser : true } }, callback );
+exports.dbConn = function( callback ) {
+	MongoClient.connect( "mongodb://team326:notesnotesnotes@timm-allman.mynetgear.com:27017/notesjs", callback);
 };

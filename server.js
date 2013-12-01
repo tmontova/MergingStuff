@@ -30,13 +30,12 @@ app.use( app.router );
 app.use( express.static( path.join( __dirname, 'public' ) ) );
 
 // development only
-if ( 'development' === app.get( 'env' ) ) {
+if ( 'development' == app.get( 'env' ) ) {
 	app.use( express.errorHandler() );
 }
 
 app.get( '/', index.home );
 app.get( '/login', index.login );
-//app.get('/submit', index.submit );
 app.get( '/users', user.list );
 app.get( '/search', search.searchAll );
 app.get( '/:id/search', search.searchNotebook );
@@ -44,36 +43,29 @@ app.get( '/share', share.share );
 app.post( '/share/search', share.search );
 app.post( '/share/edit', share.edit );
 app.post( '/share/deleteUser', share.deleteUser );
-app.post( '/share/canEditChange', share.canEditChange );
-app.post( '/share/canViewChange', share.canViewChange );
+app.post( '/share/changePermission', share.changePermission );
 app.post( '/share/addUser', share.addUser );
 app.get('/home', notebook.notebookHome);
-//app.post('/home/addNotebook', notebook.addNotebook);
-app.post('/SelectedNotebook/addnote', notebook.addNote);
-
+//app.get('/home/addNotebook', notebook.addNotebook);
 app.get('/homehelp', function(req, res){
-	'use strict';
 	res.render('homehelp');
 });
-app.get('/:id/SelectedNotebook', notebook.snb);
-//app.get('/SelectedNotebook', notebook.snb);
+app.get('/SelectedNotebookHelp', function(req, res){
+	res.render('SelectedNotebookHelp');
+});
+app.get('/SelectedNotebook', notebook.snb);
 app.get( '/:id/edit', notes.edit );
 app.get( '/:id/view', notes.view );
 app.post( '/getnote', notes.getNote );
-app.post( '/grabnotes', notebook.grabNotes );
 app.post( '/update', notes.update );
-app.post('/getnotebook', notebook.getNB);
-app.post('/home/delete', notebook.removeNotebook);
 
 
 server.listen( app.get( 'port' ), function () {
-	'use strict';
 	console.log( 'Express server listening on port ' + app.get( 'port' ) );
 } );
 
 io.sockets.on( 'connection', function ( socket ) {
-	'use strict';
-	socket.on('doc_change', function(doc) {
+		socket.on('doc_change', function(doc) {
 		socket.broadcast.emit('view_update', doc);
 	});
 } );

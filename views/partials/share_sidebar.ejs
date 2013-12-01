@@ -14,9 +14,9 @@
 		<div style="width:180px;top:150px;">
 			<div class='sd_menu_subheader'>Shared With:</div><button id='edit_button' class= 'btn btn-primary'>Edit</button>
 			<ul id='sharedList' style='top:20px;'>
-				<% for(var i=0; i<shared.length; i++) { %>
-   					<li class="sharedData"> <%= shared[i].name %> <br>
-   				<% if(shared[i].canEdit===true){ %> 
+			<% for(var i=0; i<shared.length; i++) { %>
+   					<li class="sharedData"> <%= shared[i].fname %> <%=shared[i].lname %> <br>
+   				<% if(shared[i].edit===true){ %> 
    					<li> Can Edit </li>
    				<% } else{ %> 
    					<li> Can View </li>

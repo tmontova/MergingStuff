@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+/*----------Universal Styles----------*/
+* {
+	font-family: "Segoe UI Light", "Segoe UI Web Light", "Segoe UI Web Regular", "Segoe UI", "Segoe UI Symbol", HelveticaNeue-Light, "Helvetica Neue", Arial, sans-serif;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	max-width: 1940px;
+	min-width: 740px;
+}
+
+button:focus, input:focus, select:focus, textarea:focus {
+	outline: none;
+}
+
+h1 {
+	margin: 0 0 5px 0;
+}
+
+input {
+	font-family: "Segoe UI", "Segoe UI Web Regular", "Segoe UI Symbol", "Helvetica Neue", "BBAlpha Sans", "S60 Sans", Arial, sans-serif;
+}
+
+/*-----------Body----------*/
+#body {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 40px;
+}
+
+.header {
+	border-bottom: 1px solid #ccc;
+	font-size: 21px;
+	height: 50px;
+	line-height: 42px;
+	margin-left: 20px;
+	margin-right: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/*-----Main Content-----*/
+#mainContent {
+	position: absolute;
+	bottom: 0;
+	left: 180px;
+	right: 0;
+	top: 0;
+}
+
+#yourContent {
+	position: absolute;
+	bottom: 500px;
+	left: 180px;
+	right: 0;
+	top: 0;
+}
+
+#theirContent {
+	position: absolute;
+	bottom: 0;
+	left: 180px;
+	right: 0;
+	top: 600px;
+}
+
+.content {
+	overflow: scroll;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 51px;
+}
+
+/*Items*/
+
+.itemTile, .searchResult {
+	position: absolute;
+	width: 195px;
+	height: 70px;
+	left: 5px;
+}
+
+.selectBox {
+	float: right;
+}
